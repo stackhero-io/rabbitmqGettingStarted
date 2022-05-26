@@ -1,10 +1,6 @@
-# RabbitMQ getting started
+# Getting started guide for RabbitMQ on Stackhero
 
-You will find in this repository some RabbitMQ and Node.js code examples.
+You will find in this repository some RabbitMQ examples for different languages.
 
-- First, clone this repository: `git clone https://github.com/stackhero-io/rabbitmqGettingStarted.git && cd rabbitmqGettingStarted`
-- Then, install nodes packages: `npm install`
-- Copy the file `.env-example` to `.env` and fill it with your credentials
-- Finally, start the first example: `node gettingStarted.js`
-
-You will find other JS scripts in this repository to show you the "Delayed message" plugin and AMQP, MQTT and STOMP protocols usages.
+To clone this repository on your computer, use `git clone https://github.com/stackhero-io/rabbitmqGettingStarted.git`.
+Then go to the directory of your prefered language and follow the `README.md` file.

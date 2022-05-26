@@ -1,9 +1,9 @@
-require('dotenv').config()
+require('dotenv').config();
 const amqplib = require('amqplib');
 
 
 // IMPORTANT: you should first activate the "Delayed Message" plugin in Stackhero's console.
-// See our documentation for more informations on https://www.stackhero.io/documentations/
+// See our documentation for more informations on https://www.stackhero.io/en/services/RabbitMQ/documentations
 const exchange = 'delayed-exchange';
 const queue = 'my-queue';
 const delay = 3000;
