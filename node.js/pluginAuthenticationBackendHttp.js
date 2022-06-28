@@ -4,7 +4,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const ngrok = require('ngrok');
 
-const apiServer = express();
+const app = express();
+let apiServer;
 
 // Here is an example of an API used to delegate the RabbitMQ users authentication.
 // See https://github.com/rabbitmq/rabbitmq-server/
@@ -30,7 +31,7 @@ const users = [
     // Create a HTTP server
     // CF. https://github.com/rabbitmq/rabbitmq-server/tree/master/deps/rabbitmq_auth_backend_http#what-must-my-web-server-do
     // Other languages are available here: https://github.com/rabbitmq/rabbitmq-server/tree/master/deps/rabbitmq_auth_backend_http/examples
-    apiServer
+    app
       .use(bodyParser.urlencoded({ extended: false }))
 
       .post('/user', (req, res) => {
@@ -74,8 +75,8 @@ const users = [
       .use((req, res, next) => {
         console.log('[404] on ', req.method, req.url, req.query, req.params);
         next();
-      })
-      .listen(localPort, () => console.debug(`👂 API listening locally on ${localPort}`));
+      });
+    apiServer = app.listen(localPort, () => console.debug(`👂 API listening locally on ${localPort}`));
 
 
     // Create Ngrok tunnel
@@ -104,7 +105,7 @@ const users = [
 })().catch(error => {
   ngrok.disconnect();
   ngrok.kill();
-  apiServer.close();
+  apiServer && apiServer.close();
 
   console.error('');
   console.error('🐞 An error occurred!');
