@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 const amqplib = require('amqplib');
 
 (async () => {

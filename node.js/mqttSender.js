@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 const mqtt = require('mqtt');
 
 if (!process.env.RABBITMQ_HOST) {

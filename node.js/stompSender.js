@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 const stompit = require('stompit');
 
 (async () => {
